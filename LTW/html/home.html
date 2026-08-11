@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Phone Store - Cửa hàng iPhone</title>
+    <link rel="stylesheet" href="../css/home.css">
+   
+</head>
+
+<body>
+
+    <div id="home" class="page active">
+
+        <div class="hero">
+            <img 
+                src="../Image/bannerwebp.webp" 
+                alt="Phone Store"
+                class="hero-image"
+            >
+        
+            <div class="hero-content">
+                <h1>Phone Store</h1>
+                <p>Cửa hàng iPhone chính hãng - Giá tốt mỗi ngày</p>
+        
+                <a href="#featuredProducts" class="btn">
+                    Mua hàng ngay
+                </a>
+            </div>
+        </div>
+
+
+        <div class="section">
+
+            <div class="container">
+
+                <h2 id="products-title" class="section-title">
+                    Sản phẩm
+                </h2>
+
+                <div id="featuredProducts" class="products">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+<!-- ================= GIỎ HÀNG ================= -->
+
+
+
+
+<!-- ================= THANH TOÁN ================= -->
+
+    <div id="checkout-page" class="page">
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Thanh toán
+                </h2>
+
+                <div class="checkout">
+
+                    <form onsubmit="placeOrder(event)">
+
+                        <div class="form-group">
+                            <label>Họ và tên *</label>
+                            <input
+                                type="text"
+                                id="fullname"
+                                required
+                                placeholder="Nhập họ tên">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Số điện thoại *</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                required
+                                placeholder="0909123456">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="example@gmail.com">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Địa chỉ nhận hàng *</label>
+                            <textarea
+                                id="address"
+                                required
+                                placeholder="Nhập địa chỉ giao hàng">
+                            </textarea>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Phương thức thanh toán *</label>
+
+                            <select id="payment" required>
+
+                                <option value="">
+                                    -- Chọn phương thức --
+                                </option>
+
+                                <option value="cod">
+                                    Thanh toán khi nhận hàng
+                                </option>
+
+                                <option value="bank">
+                                    Chuyển khoản ngân hàng
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+                            Xác nhận đặt hàng
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+<!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>Phone Store</h3>
+
+        <p>
+            Cửa hàng iPhone chính hãng
+        </p>
+
+        <p>
+            Hotline: 0909 123 456
+        </p>
+
+        <p>
+            © 2026 Phone Store
+        </p>
+
+    </footer>
+
+
+</body>
+    <script src="../js/home.js"></script>
+    <script src="../js/cart.js"></script>
+
+</html>
+
