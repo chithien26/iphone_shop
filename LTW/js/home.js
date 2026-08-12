@@ -1,5 +1,5 @@
 const featuredProducts = localStorage.getItem("allProducts")
-  ? JSON.parse(localStorage.getItem("allProducts")).slice(0, 3)
+  ? JSON.parse(localStorage.getItem("allProducts")).slice(22, 28)
   : [];
 
 function addToCart(id) {

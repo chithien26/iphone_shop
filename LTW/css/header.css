@@ -14,6 +14,12 @@
   align-items: center;
   font-size: 25px;
   font-weight: bold;
+  cursor: pointer;
+}
+.logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .brand-name {
   background: #000;
