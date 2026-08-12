@@ -6,32 +6,36 @@
 
     <title> Phone Store - Cửa hàng iPhone</title>
     <link rel="stylesheet" href="../css/home.css">
-   
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+   <script>
+    fetch('header.html') 
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        });
+    fetch('footer.html') 
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+        
+</script>
 </head>
 
 <body>
-
+    <div id="header-placeholder"></div>
     <div id="home" class="page active">
 
-        <div class="hero">
+        <div>
             <img 
                 src="../Image/bannerwebp.webp" 
-                alt="Phone Store"
-                class="hero-image"
+                class="banner-image"
             >
-        
-            <div class="hero-content">
-                <h1>Phone Store</h1>
-                <p>Cửa hàng iPhone chính hãng - Giá tốt mỗi ngày</p>
-        
-                <a href="#featuredProducts" class="btn">
-                    Mua hàng ngay
-                </a>
-            </div>
         </div>
 
 
-        <div class="section">
+        <div class="section" >
 
             <div class="container">
 
@@ -52,12 +56,7 @@
 
 
 
-<!-- ================= GIỎ HÀNG ================= -->
 
-
-
-
-<!-- ================= THANH TOÁN ================= -->
 
     <div id="checkout-page" class="page">
 
@@ -151,26 +150,10 @@
     </div>
 
 
-<!-- ================= FOOTER ================= -->
 
-    <footer>
+    
 
-        <h3>Phone Store</h3>
-
-        <p>
-            Cửa hàng iPhone chính hãng
-        </p>
-
-        <p>
-            Hotline: 0909 123 456
-        </p>
-
-        <p>
-            © 2026 Phone Store
-        </p>
-
-    </footer>
-
+    <div id="footer-placeholder"></div>
 
 </body>
     <script src="../js/home.js"></script>

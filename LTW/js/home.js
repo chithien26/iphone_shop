@@ -163,8 +163,7 @@ function placeOrder(event) {
 }
 
 
-/* ================= CHẠY WEBSITE ================= */
 
 renderProducts();
-document.getElementById("cartCount").textContent = localStorage.getItem("products_in_cart") ? JSON.parse(localStorage.getItem("products_in_cart")).length : 0;
+// document.getElementById("cartCount").textContent = localStorage.getItem("products_in_cart") ? JSON.parse(localStorage.getItem("products_in_cart")).length : 0;
 
