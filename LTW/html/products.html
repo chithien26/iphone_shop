@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sản phẩm - Phone Store</title>
+
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/products.css" />
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          updateCartCount();
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div id="header-placeholder"></div>
+    </header>
+
+    <div class="product-page">
+      <section class="product-banner">
+        <div class="container">
+          <h1>Sản phẩm</h1>
+          <p>Khám phá các sản phẩm Apple chính hãng</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="product-toolbar">
+            <div class="product-search">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm kiếm sản phẩm..."
+              />
+            </div>
+
+            <div class="product-filter">
+              <button
+                class="btn-search"
+                onclick="
+                  filterProducts(document.getElementById('searchInput').value)
+                "
+              >
+                Tìm kiếm
+              </button>
+            </div>
+          </div>
+
+          <div class="product-heading">
+            <h2 class="section-title">Tất cả sản phẩm</h2>
+
+            <span id="productCount"> 0 sản phẩm </span>
+          </div>
+
+          <div id="productList" class="products"></div>
+        </div>
+      </section>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../js/init.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/products.js"></script>
+  </body>
+</html>

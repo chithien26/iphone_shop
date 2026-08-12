@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Thanh toán - Phone Store</title>
+
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          updateCartCount();
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div id="header-placeholder"></div>
+    </header>
+
+    <main class="checkout-page">
+      <div class="checkout-container">
+        <div class="checkout-heading">
+          <h1>Thanh toán</h1>
+          <p>Điền thông tin để hoàn tất đơn hàng</p>
+        </div>
+
+        <div class="checkout-layout">
+          <section class="checkout-form">
+            <div class="checkout-card">
+              <div class="card-heading">
+                <span class="step-number">1</span>
+
+                <div>
+                  <h2>Thông tin nhận hàng</h2>
+                  <p>Thông tin người nhận hàng</p>
+                </div>
+              </div>
+
+              <form onsubmit="placeOrder(event)">
+                <!-- FULLNAME -->
+                <div class="form-group">
+                  <label for="fullname">
+                    Họ và tên
+                    <span>*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="fullname"
+                    placeholder="Nguyễn Văn A"
+                    required
+                  />
+                </div>
+
+                <!-- PHONE -->
+                <div class="form-group">
+                  <label for="phone">
+                    Số điện thoại
+                    <span>*</span>
+                  </label>
+
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="09123456789"
+                    required
+                  />
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                  <label for="email"> Email </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                  />
+                </div>
+
+                <!-- ADDRESS -->
+                <div class="form-group">
+                  <label for="address">
+                    Địa chỉ nhận hàng
+                    <span>*</span>
+                  </label>
+
+                  <textarea
+                    id="address"
+                    rows="4"
+                    placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="payment-section">
+                  <div class="card-heading payment-heading">
+                    <span class="step-number">2</span>
+
+                    <div>
+                      <h2>Phương thức thanh toán</h2>
+                      <p>Chọn phương thức thanh toán</p>
+                    </div>
+                  </div>
+
+                  <div class="payment-options">
+                    <label class="payment-option">
+                      <input type="radio" name="payment" value="cod" />
+
+                      <div class="payment-content">
+                        <div class="payment-icon">💵</div>
+
+                        <div>
+                          <strong> Thanh toán khi nhận hàng </strong>
+
+                          <p>Thanh toán bằng tiền mặt khi nhận được hàng</p>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- BUTTON -->
+                <button type="submit" class="place-order-btn">
+                  Xác nhận đặt hàng
+                </button>
+
+                <button
+                  type="button"
+                  class="back-cart-btn"
+                  onclick="location.href = 'cart.html'"
+                >
+                  ← Quay lại giỏ hàng
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <!-- =========================
+                     ORDER SUMMARY
+                ========================== -->
+
+          <aside class="order-summary">
+            <div class="summary-card">
+              <h2>Đơn hàng của bạn</h2>
+
+              <!-- PRODUCTS -->
+              <div id="checkoutProducts" class="checkout-products">
+                <!-- JS render sản phẩm -->
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-row">
+                <span>Tạm tính</span>
+
+                <span id="checkoutSubtotal"> 0 đ </span>
+              </div>
+
+              <div class="summary-row">
+                <span>Phí vận chuyển</span>
+
+                <span class="free"> Miễn phí </span>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-total">
+                <span>Tổng cộng</span>
+
+                <strong id="checkoutTotal"> 0 đ </strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div id="footer-placeholder"></div>
+    </footer>
+
+    <script src="../js/init.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>

@@ -1,48 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gio hang</title>
-    <link rel="stylesheet" href="../css/cart.css">
-</head>
-<body>
-    <div id="cart-page" class="page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          updateCartCount();
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <main id="cart-page">
+      <section class="cart-section">
+        <div class="cart-container">
+          <div class="cart-heading">
+            <h1>Giỏ hàng</h1>
+            <p>Kiểm tra sản phẩm trước khi thanh toán</p>
+          </div>
 
-    <section class="section">
+          <div class="cart-layout">
+            <!-- PRODUCT LIST -->
+            <div class="cart-products">
+              <div class="cart-products-header">
+                <h2>Sản phẩm</h2>
+              </div>
 
-        <div class="container">
-
-            <h2 class="section-title">
-                Giỏ hàng
-            </h2>
-
-            <div class="cart-box">
-
-                <div id="cartItems">
-
-                </div>
-
-                <div class="cart-total">
-                    Tổng tiền:
-                    <span id="cartTotal">0đ</span>
-                </div>
-
-                <br>
-
-                <button
-                    class="btn btn-primary"
-                    onclick="showPage('checkout-page')">
-                    Tiến hành thanh toán
-                </button>
-
+              <div id="cartItems"></div>
             </div>
 
+            <!-- SUMMARY -->
+            <aside class="cart-summary">
+              <h2>Tóm tắt đơn hàng</h2>
+
+              <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="cartTotal">0 đ</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span class="free">Miễn phí</span>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-total">
+                <span>Tổng cộng</span>
+                <strong id="cartTotalSummary">0 đ</strong>
+              </div>
+
+              <button class="checkout-btn" onclick="showPage('checkout')">
+                Tiến hành thanh toán
+              </button>
+
+              <button class="continue-btn" onclick="showPage('products')">
+                ← Tiếp tục mua sắm
+              </button>
+            </aside>
+          </div>
         </div>
-
-    </section>
-
-</div>
-</body>
-<script src="../js/cart.js"></script>
+      </section>
+    </main>
+    <div id="footer-placeholder"></div>
+  </body>
+  <script src="../js/init.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/home.js"></script>
+  <!-- <script src="../js/products.js"></script> -->
+  <script src="../js/cart.js"></script>
 </html>

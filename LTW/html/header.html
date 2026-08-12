@@ -1,31 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../css/header.css">    
-</head>
-<body>
-    <div class="header-container" >
-            <div class="logo" style="display: flex; align-items: center;">
-                <img 
-                    src="../Image/logo_apple.png" 
-                    alt="Phone Store"
-                    class="logo-image"
-                    width="50"
-                    height="50"
-                >
-                <h2 style="background: #000; color: white; ">Iphone Store</h2>
-            </div>
-            <nav>
-                <a onclick="showPage('home')">Trang chủ</a>
-                <a href="#products-title">Sản phẩm</a>
-                <a onclick="showPage('cart')">
-                    Giỏ hàng (<span id="cartCount">0</span>)
-                </a>
-            </nav>
+    <link rel="stylesheet" href="../css/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="logo">
+        <img
+          src="../Image/logo_apple.png"
+          alt="Phone Store"
+          class="logo-image"
+          width="50"
+          height="50"
+        />
+        <h2 class="brand-name">IPhone Store</h2>
+      </div>
+      <div class="features">
+        <a onclick="showPage('home')">
+          <i class="fa-solid fa-house"></i>
+          <span>Trang chủ</span>
+        </a>
 
-        </div>
-</body>
+        <a onclick="showPage('products')">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>Sản phẩm</span>
+        </a>
+
+        <a onclick="showPage('cart')">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Giỏ hàng</span>
+          (<span id="cartCount">0</span>)
+        </a>
+
+        <a onclick="showPage('contact')">
+          <i class="fa-solid fa-phone"></i>
+          <span>Liên hệ</span>
+        </a>
+      </div>
+    </div>
+  </body>
 </html>

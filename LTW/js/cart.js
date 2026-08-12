@@ -1,19 +1,19 @@
-// import {notify} from './notification.js';
+let current_products_in_cart =
+  JSON.parse(localStorage.getItem("products_in_cart")) || [];
+let total = current_products_in_cart.reduce(
+  (sum, product) => sum + product.price,
+  0,
+);
 
-const savedData = localStorage.getItem('products_in_cart');
-
-
-function renderProducts() {
-
-    const products_in_cart = JSON.parse(localStorage.getItem("products_in_cart")) || [];
+function updateCartItems() {
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+  if (current_products_in_cart.length === 0) {
+    cartItems.innerHTML = "<p>Giỏ hàng đang trống.</p>";
+  } else {
     let html = "";
-    
-    if (products_in_cart.length === 0) {
-        html = "<p>Giỏ hàng đang trống.</p>";
-    }
-    else {
-        products_in_cart.forEach((product, index) => {
-            html += `
+    current_products_in_cart.forEach((product, index) => {
+      html += `
                 <div class="cart-item">
                     <img src="${product.image}" alt="${product.name}">
                     <div class="cart-item-details">
@@ -23,60 +23,43 @@ function renderProducts() {
                     </div>
                 </div>
             `;
-        });
-    }
-
-    const total = products_in_cart.reduce((sum, product) => sum + product.price, 0);
+    });
+    cartItems.innerHTML = html;
+  }
 }
 
-
-function addToCart(id) {
-
-    const product =
-        products.find(p => p.id === id);
-
-    products_in_cart.push(product);
-    console.log(products_in_cart);
-
-    localStorage.setItem("products_in_cart", JSON.stringify(products_in_cart));
-
-    updateCart();
-    //add message notification when adding product to cart khoong can bam ok
-    alert("Đã thêm " + product.name + " vào giỏ hàng!");
-    // notify.addProductNotification(product.name);
-
+function updateCartTotal() {
+  const cartTotal = localStorage.getItem("products_in_cart")
+    ? JSON.parse(localStorage.getItem("products_in_cart")).reduce(
+        (sum, product) => sum + product.price,
+        0,
+      )
+    : 0;
+  document.getElementById("cartTotal").textContent =
+    cartTotal.toLocaleString() + " đ";
+  document.getElementById("cartTotalSummary").textContent =
+    cartTotal.toLocaleString() + " đ";
 }
-
-
-/* ================= CẬP NHẬT GIỎ ================= */
 
 function updateCart() {
-    console.log("Updating cart...");
-    document.getElementById("cartCount").textContent =
-        products_in_cart.length;
-
-    if (products_in_cart.length === 0) {
-
-        cartItems.innerHTML =
-            "<p>Giỏ hàng đang trống.</p>";
-
-        document.getElementById("cartTotal").textContent =
-            "0 đ";
-        return;
-
-    }
+  updateCartCount();
+  updateCartTotal();
 }
-
-
+function renderCart() {
+  updateCartItems();
+  updateCart();
+}
 /* ================= XÓA SẢN PHẨM ================= */
 
 function removeCart(index) {
+  current_products_in_cart.splice(index, 1);
 
-    products_in_cart.splice(index, 1);
+  localStorage.setItem(
+    "products_in_cart",
+    JSON.stringify(current_products_in_cart),
+  );
 
-    localStorage.setItem("products_in_cart", JSON.stringify(products_in_cart));
-
-    updateCart();
-
+  renderCart();
 }
-renderProducts();
+
+renderCart();
