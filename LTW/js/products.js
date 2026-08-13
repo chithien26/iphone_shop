@@ -49,8 +49,16 @@ function formatMoney(number) {
 
 function addToCart(id) {
   const product = products.find((p) => p.id === id);
+  const products_in_cart = localStorage.getItem("products_in_cart")
+    ? JSON.parse(localStorage.getItem("products_in_cart"))
+    : [];
+  const existingProduct = products_in_cart.find((p) => p.id === id);
 
-  products_in_cart.push(product);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    products_in_cart.push({ ...product, quantity: 1 });
+  }
 
   localStorage.setItem("products_in_cart", JSON.stringify(products_in_cart));
 

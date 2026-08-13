@@ -310,6 +310,29 @@ body {
   text-decoration: underline;
 }
 
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.cart-item-quantity button {
+  margin-bottom: 15px;
+  border: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+}
+.cart-item-quantity > .decrease-btn {
+  background: #ff3b30;
+  color: #ffffff;
+}
+.cart-item-quantity > .increase-btn {
+  background: #34c759;
+  color: #ffffff;
+}
 /* ================================
    RESPONSIVE
 ================================ */

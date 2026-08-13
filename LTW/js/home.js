@@ -5,8 +5,15 @@ const featuredProducts = localStorage.getItem("allProducts")
 function addToCart(id) {
   const products = JSON.parse(localStorage.getItem("allProducts")) || [];
   const product = products.find((p) => p.id === id);
+  const products_in_cart =
+    JSON.parse(localStorage.getItem("products_in_cart")) || [];
 
-  products_in_cart.push(product);
+  const existingProduct = products_in_cart.find((p) => p.id === id);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+  } else {
+    products_in_cart.push({ ...product, quantity: 1 });
+  }
 
   localStorage.setItem("products_in_cart", JSON.stringify(products_in_cart));
 

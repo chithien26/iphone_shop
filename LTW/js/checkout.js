@@ -26,7 +26,7 @@ function renderCheckout() {
   let total = 0;
 
   productsInCart.forEach((product) => {
-    total += Number(product.price);
+    total += Number(product.price) * Number(product.quantity);
 
     html += `
             <div class="checkout-product">
